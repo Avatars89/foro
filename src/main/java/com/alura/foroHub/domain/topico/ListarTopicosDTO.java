@@ -4,22 +4,22 @@ import java.time.LocalDateTime;
 
 public record ListarTopicosDTO(
         Long id,
-        String title,
-        String message,
+        String titulo,
+        String mensaje,
         Status status,
         Long usuario_Id,
         String curso,
-        LocalDateTime date
+        LocalDateTime fechaCreacion
 ) {
     public ListarTopicosDTO (Topico topico){
         this(
                 topico.getId(),
-                topico.getTitle(),
-                topico.getMessage(),
+                topico.getTitulo(),
+                topico.getMensaje(),
                 topico.getStatus(),
-                topico.getAuthor().getId(),
-                topico.getCourse(),
-                topico.getDate());
+                topico.getAutor().getId(),
+                topico.getCurso(),
+                topico.getFecha());
 
     }
 }

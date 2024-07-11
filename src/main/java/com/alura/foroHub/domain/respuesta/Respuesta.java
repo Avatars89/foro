@@ -17,27 +17,29 @@ public class Respuesta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDateTime creationDate;
-    private String solution;
+    private LocalDateTime fechaCreacion;
+    private String solucion;
+    private String mensaje;
     @OneToOne
-    @JoinColumn(name="author", referencedColumnName="id")
-    private Usuario author;
+    @JoinColumn(name="autor", referencedColumnName="id")
+    private Usuario autor;
     @OneToOne
     @JoinColumn(name="topico", referencedColumnName="id")
     private Topico topico;
     private boolean active;
 
-    public Respuesta(Long id, String solution, Usuario usuario, Topico topico, LocalDateTime creationDate) {
+    public Respuesta(Long id, String solution, String mensaje, Usuario usuario, Topico topico, LocalDateTime creationDate) {
         this.id=id;
-        this.solution=solution;
-        this.author=usuario;
+        this.solucion=solution;
+        this.mensaje=mensaje;
+        this.autor=usuario;
         this.topico=topico;
-        this.creationDate=LocalDateTime.now();
+        this.fechaCreacion=LocalDateTime.now();
     }
 
     public void respuestaActualizada(RespuestaActualizadaDTO respuestaActualizadaDTO) {
-        if (respuestaActualizadaDTO.solution() != null){
-            this.solution=respuestaActualizadaDTO.solution();
+        if (respuestaActualizadaDTO.solucion() != null){
+            this.solucion=respuestaActualizadaDTO.solucion();
         }
     }
     public void diactivateResponse(){

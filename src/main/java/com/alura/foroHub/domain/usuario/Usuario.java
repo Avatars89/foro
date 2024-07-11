@@ -26,7 +26,7 @@ public class Usuario implements UserDetails {
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String nombre;
 
     @Column(unique = true, nullable = false)
     private String email;
@@ -40,14 +40,14 @@ public class Usuario implements UserDetails {
     private boolean active;
 
     public Usuario(RegistroUsuarioDTO registroUsuarioDTO) {
-        this.name = registroUsuarioDTO.name();
+        this.nombre = registroUsuarioDTO.nombre();
         this.email = registroUsuarioDTO.email();
         this.password = registroUsuarioDTO.password();
         /*this.perfil = registroUsuarioDTO.perfil();*/
     }
 
     public Usuario(RegistroUsuarioDTO registroUsuarioDTO, BCryptPasswordEncoder bCryptPasswordEncoder) {
-        this.name = registroUsuarioDTO.name();
+        this.nombre = registroUsuarioDTO.nombre();
         this.username = registroUsuarioDTO.username();
         this.email = registroUsuarioDTO.email();
         this.password = bCryptPasswordEncoder.encode(registroUsuarioDTO.password());
@@ -55,8 +55,8 @@ public class Usuario implements UserDetails {
     }
 
     public void actualizacionUsuario(ActualizacionUsuarioDTO actualizacionUsuarioDTO) {
-        if (actualizacionUsuarioDTO.name() != null) {
-            this.name = actualizacionUsuarioDTO.name();
+        if (actualizacionUsuarioDTO.nombre() != null) {
+            this.nombre = actualizacionUsuarioDTO.nombre();
         }
         if (actualizacionUsuarioDTO.email() != null) {
             this.email = actualizacionUsuarioDTO.email();

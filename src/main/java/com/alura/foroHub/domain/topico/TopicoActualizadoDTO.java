@@ -5,11 +5,11 @@ import java.time.LocalDateTime;
 
 public record TopicoActualizadoDTO(
         @NotNull Long id,
-        String title,
-        String message,
+        String titulo,
+        String mensaje,
         Status status,
         @NotNull Long usuario_Id,
         String curso,
-        LocalDateTime date
+        LocalDateTime fecha
 ) {
 }

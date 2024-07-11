@@ -1,4 +1,4 @@
-package com.alura.foroHub..controller;
+package com.alura.foroHub.controller;
 
 import com.alura.foroHub.domain.respuesta.*;
 import com.alura.foroHub.domain.topico.TopicoRepository;
@@ -63,10 +63,13 @@ public class RespuestaController {
     public ResponseEntity respuestaActualizada(@RequestBody @Valid RespuestaActualizadaDTO respuestaActualizadaDTO){
         Respuesta respuesta=repository.getReferenceById(respuestaActualizadaDTO.id());
         respuesta.respuestaActualizada(respuestaActualizadaDTO);
-        return ResponseEntity.ok(new RespuestaCreadaDTO(respuesta.getId(),respuesta.getSolution(),
-                respuesta.getAuthor().getId(),
+        return ResponseEntity.ok(new RespuestaCreadaDTO(
+                respuesta.getId(),
+                respuesta.getSolucion(),
+                respuesta.getMensaje(),
+                respuesta.getAutor().getId(),
                 respuesta.getTopico().getId(),
-                respuesta.getCreationDate()));
+                respuesta.getFechaCreacion()));
     }
 
     /************************************************
@@ -93,10 +96,11 @@ public class RespuestaController {
     public ResponseEntity <RespuestaCreadaDTO> respuestaCreada(@PathVariable Long id){
         Respuesta respuesta=repository.getReferenceById(id);
         var respuestaRegistrada = new RespuestaCreadaDTO(respuesta.getId(),
-                respuesta.getSolution(),
-                respuesta.getAuthor().getId(),
+                respuesta.getSolucion(),
+                respuesta.getMensaje(),
+                respuesta.getAutor().getId(),
                 respuesta.getTopico().getId(),
-                respuesta.getCreationDate());
+                respuesta.getFechaCreacion());
         return ResponseEntity.ok(respuestaRegistrada);
     }
 }

@@ -5,19 +5,19 @@ import jakarta.validation.constraints.NotNull;
 
 public record RegistroTopicoDTO (
         @NotBlank(message = "Título es obligatorio")
-        String title,
+        String titulo,
         @NotBlank(message = "Mensaje es obligatorio")
-        String message,
+        String mensaje,
         @NotBlank(message = "Curso es obligatorio")
-        String course,
+        String curso,
         @NotNull(message = "Author_id es obligatorio")
-        Long author_id
+        Long autor_id
 ) {
 
-    public RegistroTopicoDTO(String title, String message, String course, Long author_id){
-        this.title = title;
-        this.message = message;
-        this.course = course;
-        this.author_id = author_id;
+    public RegistroTopicoDTO(String titulo, String mensaje, String curso, Long autor_id){
+        this.titulo = titulo;
+        this.mensaje = mensaje;
+        this.curso = curso;
+        this.autor_id = autor_id;
     }
 }

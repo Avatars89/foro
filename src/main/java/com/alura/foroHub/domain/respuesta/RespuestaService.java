@@ -25,7 +25,7 @@ public class RespuestaService {
         var usuario = usuarioRepository.findById(respuestaDTO.usuario_Id()).get();
         var topico =topicoRepository.findById(respuestaDTO.topico_Id()).get();
 
-        var rVerified= new Respuesta(null,respuestaDTO.solution(),usuario,topico,respuestaDTO.creationDate());
+        var rVerified= new Respuesta(null,respuestaDTO.solucion(), respuestaDTO.mensaje(), usuario,topico,respuestaDTO.fechaCreacion());
         repository.save(rVerified);
         return new RespuestaCreadaDTO(rVerified);
     }

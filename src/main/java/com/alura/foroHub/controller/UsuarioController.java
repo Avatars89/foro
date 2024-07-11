@@ -44,7 +44,7 @@ public class UsuarioController {
     public ResponseEntity actualizacionUsuario (@RequestBody @Valid ActualizacionUsuarioDTO actualizacionUsuarioDTO){
         Usuario usuario = usuarioRepository.getReferenceById(actualizacionUsuarioDTO.id());
         usuario.actualizacionUsuario(actualizacionUsuarioDTO);
-        return ResponseEntity.ok(new ActualizacionUsuarioDTO(usuario.getId(),usuario.getName(), usuario.getEmail()));
+        return ResponseEntity.ok(new ActualizacionUsuarioDTO(usuario.getId(),usuario.getNombre(), usuario.getEmail()));
     }
 
     /************************************************
@@ -70,7 +70,7 @@ public class UsuarioController {
     @GetMapping("/{id}")
     public ResponseEntity <RespuestaUsuarioDTO> registrarUsuario(@PathVariable Long id){
         Usuario usuario = usuarioRepository.getReferenceById(id);
-        var usuarioDetail = new RespuestaUsuarioDTO(usuario.getId(), usuario.getName());
+        var usuarioDetail = new RespuestaUsuarioDTO(usuario.getId(), usuario.getNombre());
         return ResponseEntity.ok(usuarioDetail);
     }
 }

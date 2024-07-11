@@ -18,40 +18,40 @@ public class Topico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String title;
-    private String message;
-    private LocalDateTime date;
+    private String titulo;
+    private String mensaje;
+    private LocalDateTime fecha;
     @Enumerated(EnumType.STRING)
     private Status status;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name= "author_id")
-    private Usuario author;
-    private String course;
+    @JoinColumn(name= "autor_id")
+    private Usuario autor;
+    private String curso;
     private boolean active;
 
-    public Topico(Long id, String title, String message, LocalDateTime date, Status status, Usuario usuario, String curso) {
+    public Topico(Long id, String titulo, String mensaje, LocalDateTime fecha, Status status, Usuario usuario, String curso) {
         this.id=id;
-        this.title=title;
-        this.message=message;
-        this.date = date;
-        this.date=LocalDateTime.now();
+        this.titulo=titulo;
+        this.mensaje=mensaje;
+        //this.fecha = fechaCreacion;
+        this.fecha=LocalDateTime.now();
         this.status=status;
-        this.author=usuario;
-        this.course=curso;
+        this.autor=usuario;
+        this.curso=curso;
     }
 
     public void topicoActualizado(TopicoActualizadoDTO topicoActualizadoDTO) {
-        if (topicoActualizadoDTO.title() !=null){
-            this.title= topicoActualizadoDTO.title();
+        if (topicoActualizadoDTO.titulo() !=null){
+            this.titulo= topicoActualizadoDTO.titulo();
         }
-        if (topicoActualizadoDTO.message() != null){
-            this.message=topicoActualizadoDTO.message();
+        if (topicoActualizadoDTO.mensaje() != null){
+            this.mensaje=topicoActualizadoDTO.mensaje();
         }
         if (topicoActualizadoDTO.status() != null){
             this.status=topicoActualizadoDTO.status();
         }
         if (topicoActualizadoDTO.curso() != null){
-            this.course=topicoActualizadoDTO.curso();
+            this.curso=topicoActualizadoDTO.curso();
         }
     }
     public void diactivateTopic(){

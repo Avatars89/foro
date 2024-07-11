@@ -2,7 +2,7 @@ package com.alura.foroHub.domain.usuario;
 
 public record RespuestaUsuarioDTO(
         Long id,
-        String name
+        String nombre
         /*String email*/
 ) {
 

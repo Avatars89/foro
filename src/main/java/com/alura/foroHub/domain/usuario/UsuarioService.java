@@ -28,7 +28,7 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
         return new RegistroUsuarioDTO(
                 usuario.getId(),
-                usuario.getName(),
+                usuario.getNombre(),
                 usuario.getEmail(),
                 usuario.getUsername(),
                 usuario.getPassword());
@@ -54,7 +54,7 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
         return new RegistroUsuarioDTO(
                 usuario.getId(),
-                usuario.getName(),
+                usuario.getNombre(),
                 usuario.getEmail(),
                 usuario.getUsername(),
                 usuario.getPassword());
@@ -75,7 +75,7 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
         return new RegistroUsuarioDTO(
                 usuario.getId(),
-                usuario.getName(),
+                usuario.getNombre(),
                 usuario.getEmail(),
                 usuario.getUsername(),
                 usuario.getPassword());

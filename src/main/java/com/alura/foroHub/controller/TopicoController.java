@@ -61,9 +61,9 @@ public class TopicoController {
         Topico topico= topicoRepository.getReferenceById(topicoActualizadoDTO.id());
         topico.topicoActualizado(topicoActualizadoDTO);
         return ResponseEntity.ok(new RespuestaTopicoDTO(topico.getId(),
-                topico.getTitle(),topico.getMessage(),
-                topico.getStatus(),topico.getAuthor().getId(),
-                topico.getCourse(),topico.getDate()));
+                topico.getTitulo(),topico.getMensaje(),
+                topico.getStatus(),topico.getAutor().getId(),
+                topico.getCurso(),topico.getFecha()));
     }
 
     /************************************************
@@ -90,12 +90,12 @@ public class TopicoController {
     public ResponseEntity <RespuestaTopicoDTO> respuestaTopico(@PathVariable Long id){
         Topico topico = topicoRepository.getReferenceById(id);
         var topicoId = new RespuestaTopicoDTO(topico.getId(),
-                topico.getTitle(),
-                topico.getMessage(),
+                topico.getTitulo(),
+                topico.getMensaje(),
                 topico.getStatus(),
-                topico.getAuthor().getId(),
-                topico.getCourse(),
-                topico.getDate());
+                topico.getAutor().getId(),
+                topico.getCurso(),
+                topico.getFecha());
         return ResponseEntity.ok(topicoId);
     }
 }

@@ -10,12 +10,14 @@ import java.time.LocalDateTime;
 
 public record RespuestaDTO(
         @NotBlank
-        String solution,
+        String solucion,
+        @NotBlank
+        String mensaje,
         @NotNull
         @Valid
         Long usuario_Id,
         @NotNull
         @Valid
         Long topico_Id,
-        LocalDateTime creationDate) {
+        LocalDateTime fechaCreacion) {
 }

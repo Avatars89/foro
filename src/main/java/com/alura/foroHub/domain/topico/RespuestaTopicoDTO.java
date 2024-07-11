@@ -4,20 +4,20 @@ import java.time.LocalDateTime;
 
 public record RespuestaTopicoDTO(
         Long id,
-        String title,
-        String message,
+        String titulo,
+        String mensaje,
         Status status,
         Long usuario_Id,
         String curso,
-                                LocalDateTime date) {
+        LocalDateTime fecha) {
     public RespuestaTopicoDTO(Topico topicoId) {
         this(
                 topicoId.getId(),
-                topicoId.getTitle(),
-                topicoId.getMessage(),
+                topicoId.getTitulo(),
+                topicoId.getMensaje(),
                 topicoId.getStatus(),
-                topicoId.getAuthor().getId(),
-                topicoId.getCourse(),
-                topicoId.getDate());
+                topicoId.getAutor().getId(),
+                topicoId.getCurso(),
+                topicoId.getFecha());
     }
 }

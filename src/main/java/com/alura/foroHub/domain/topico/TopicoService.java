@@ -16,16 +16,16 @@ public class TopicoService {
         if (!usuarioRepository.findById(topicoDTO.usuario_Id()).isPresent()){
             throw new ValidacionDeIntegridad("Este ID de usuario no está registrado en la base de datos.");
         }
-        var title= topicoDTO.title();
-        if (title != null && topicoRepository.existsByTitleIgnoreCase(title)){
+        var titulo= topicoDTO.titulo();
+        if (titulo != null && topicoRepository.existsByTituloIgnoreCase(titulo)){
             throw new ValidacionDeIntegridad("Este título ya está presente en la base de datos. Por favor revise el tópico existente.");
         }
-        String message = topicoDTO.message();
-        if (message != null && topicoRepository.existsByMessageIgnoreCase(message)){
+        String mensaje = topicoDTO.mensaje();
+        if (mensaje != null && topicoRepository.existsByMensajeIgnoreCase(mensaje)){
             throw new ValidacionDeIntegridad("Este mensaje ya está presente en la base de datos. Por favor revise el tópico existente.");
         }
         var usuario = usuarioRepository.findById(topicoDTO.usuario_Id()).get();
-        var topicoId= new Topico(null,title,message,topicoDTO.date(),topicoDTO.status(),usuario,topicoDTO.curso());
+        var topicoId= new Topico(null,titulo,mensaje,topicoDTO.fecha(),topicoDTO.status(),usuario,topicoDTO.curso());
         topicoRepository.save(topicoId);
         return new RespuestaTopicoDTO(topicoId);
     }

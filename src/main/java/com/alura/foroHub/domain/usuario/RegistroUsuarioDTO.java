@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Pattern;
 
 public record RegistroUsuarioDTO(
         Long id, @NotBlank
-        String name,
+        String nombre,
         @NotBlank (message = "Utilice su correo electrónico como nombre de usuario")
         @Email
         String username,
@@ -21,8 +21,8 @@ public record RegistroUsuarioDTO(
                 return id;
         }
 
-        public String getName() {
-                return name;
+        public String getNombre() {
+                return nombre;
         }
 
         public String getEmail() {
