@@ -40,7 +40,7 @@ public class RegistroController {
         try {
             RegistroUsuarioDTO usuario = usuarioService.registrarUsuario(registroUsuarioDTO);
             RespuestaUsuarioDTO respuestaUsuarioDTO;
-            respuestaUsuarioDTO = new RespuestaUsuarioDTO(usuario.getId(), usuario.getNombre());
+            respuestaUsuarioDTO = new RespuestaUsuarioDTO(usuario.getId(), usuario.getNombre()  );
             URI url = uriComponentsBuilder.path("usuario/{id}").buildAndExpand(usuario.getId()).toUri();
             return ResponseEntity.created(url).body(respuestaUsuarioDTO);
         } catch (ConstraintViolationException ex) {

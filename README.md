@@ -24,8 +24,29 @@ spring.datasource.password=root
 
 ## Endpoints
 
-- `POST /users`: Registrar un nuevo usuario.
+- `POST /registro`: Registrar un nuevo usuario.
+    ```
+  					{
+						"nombre":"ejemplo",
+						"username":"ejemplo@coreo.com",
+						"email":"ejemplo@coreo.com",
+						"password":"123456"
+						
+					}
+  ```
+    
 - `POST /login`: Iniciar sesión y obtener un token JWT.
+    ```
+  					{
+						"email":"ejemplo@coreo.com",
+						"password":"123456"	
+					}
+  
+  ```
+
+- `GET /usuario`: Obtener usuarios.
+usuario/all o por id
+
 - `POST /topics`: Crear un nuevo tópico.
 - `GET /topics`: Listar todos los tópicos.
 - `DELETE /topics/{id}`: Eliminar un tópico por ID.

@@ -31,7 +31,7 @@ public class TopicoController {
      * ENDPOINT :
      * http://localhost:8080/topico/topico
      *************************************/
-    @PostMapping("/topico")
+    @PostMapping("/nuevo")
     @Transactional
     public ResponseEntity topicoRegistrado(@RequestBody @Valid TopicoDTO topicoDTO) throws ValidacionDeIntegridad {
         var topicoRegistrado = topicoService.topicoCreado(topicoDTO);
@@ -44,7 +44,7 @@ public class TopicoController {
      * ENDPOINT :
      * http://localhost:8080/topico/topicos
      ***************************************/
-    @GetMapping("/topicos")
+    @GetMapping("/lista")
     public ResponseEntity<Page<ListarTopicosDTO>>  listarTopicos(@PageableDefault(size = 10) Pageable paged){
         return ResponseEntity.ok(topicoRepository.findByActiveTrue(paged).map(ListarTopicosDTO::new));
     }
@@ -95,7 +95,7 @@ public class TopicoController {
                 topico.getStatus(),
                 topico.getAutor().getId(),
                 topico.getCurso(),
-                topico.getFecha());
+                topico.getFecha()   );
         return ResponseEntity.ok(topicoId);
     }
 }

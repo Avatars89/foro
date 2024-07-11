@@ -11,13 +11,13 @@ public record RegistroTopicoDTO (
         @NotBlank(message = "Curso es obligatorio")
         String curso,
         @NotNull(message = "Author_id es obligatorio")
-        Long autor_id
+        Long autor_Id
 ) {
 
-    public RegistroTopicoDTO(String titulo, String mensaje, String curso, Long autor_id){
+    public RegistroTopicoDTO(String titulo, String mensaje, String curso, Long autor_Id){
         this.titulo = titulo;
         this.mensaje = mensaje;
         this.curso = curso;
-        this.autor_id = autor_id;
+        this.autor_Id = autor_Id;
     }
 }

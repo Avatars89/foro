@@ -28,7 +28,7 @@ public class UsuarioController {
      * ENDPOINT :
      * http://localhost:8080/usuario/usuarios
      ***************************************/
-    @GetMapping("/usuarios")
+    @GetMapping("/lista")
     public ResponseEntity<Page<ListarUsuariosDTO>> listarUsuarios(@PageableDefault(size = 10) Pageable paged){
         return ResponseEntity.ok(usuarioRepository.findByActiveTrue(paged).map(ListarUsuariosDTO::new));
     }

@@ -25,7 +25,7 @@ public class TopicoService {
             throw new ValidacionDeIntegridad("Este mensaje ya está presente en la base de datos. Por favor revise el tópico existente.");
         }
         var usuario = usuarioRepository.findById(topicoDTO.usuario_Id()).get();
-        var topicoId= new Topico(null,titulo,mensaje,topicoDTO.fecha(),topicoDTO.status(),usuario,topicoDTO.curso());
+        var topicoId= new Topico(null,titulo,mensaje,topicoDTO.fecha(), topicoDTO.status(),usuario,topicoDTO.curso(), topicoDTO.active());
         topicoRepository.save(topicoId);
         return new RespuestaTopicoDTO(topicoId);
     }

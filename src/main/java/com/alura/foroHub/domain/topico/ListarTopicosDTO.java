@@ -9,7 +9,7 @@ public record ListarTopicosDTO(
         Status status,
         Long usuario_Id,
         String curso,
-        LocalDateTime fechaCreacion
+        LocalDateTime fecha
 ) {
     public ListarTopicosDTO (Topico topico){
         this(

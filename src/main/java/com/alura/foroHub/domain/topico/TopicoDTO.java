@@ -14,6 +14,8 @@ public record TopicoDTO(
         Long usuario_Id,
         @NotNull(message = "Recuerda utilizar el curso apropiado para tu publicación.")
         String curso,
+        Boolean active,
         LocalDateTime fecha
+
 ) {
 }
